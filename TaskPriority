@@ -1,0 +1,6 @@
+package lesson5.taskPriority;
+public enum TaskPriority {
+    HIGH,
+    MEDIUM,
+    LOW
+}
