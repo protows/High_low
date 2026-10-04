@@ -1,0 +1,33 @@
+package lesson5.taskPriority;
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.Arrays;
+
+public class StartPriority {
+
+    public static void main(String[] args) {
+        ArrayList<Task> tasks = new ArrayList<>();
+        tasks.add(new Task(TaskPriority.HIGH, "Оплатить интернет."));
+        tasks.add(new Task(TaskPriority.LOW, "Сходить в парикмахерскую."));
+        tasks.add(new Task(TaskPriority.MEDIUM, "Выбрать подарок подруге на ДР."));
+        tasks.add(new Task(TaskPriority.MEDIUM, "Купить билеты в театр."));
+        tasks.add(new Task(TaskPriority.HIGH, "Посетить вебинар по английскому языку."));
+        tasks.add(new Task(TaskPriority.LOW, "Купить пылесос."));
+
+        System.out.println("Задачи с наивысшим приоритетом на сегодня:");
+        // цикл for для поиска задач
+        for(int i=0; i< tasks.size()-1; i++){
+            for(int j=0; j< tasks.size()-i-1; j++){
+                if(tasks.get(j).getPriority().ordinal() > tasks.get(j+1).getPriority().ordinal()){
+                    Task temp = tasks.get(j);
+                    tasks.set(j, tasks.get(j+1));
+                    tasks.set(j+1, temp);
+                }
+            }
+        }
+            for(int y=0; y<tasks.size(); y++){
+                 System.out.println( tasks.get(y).getPriority() + ": " +  tasks.get(y).getDescription());
+            } 
+        
+    }
+}
